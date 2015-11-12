@@ -1,4 +1,3 @@
-
 gcards_common_cppflags =                                                       \
 		-I$(srcdir)                                                    \
 		-I$(srcdir)/src                                                \
@@ -21,6 +20,8 @@ bin_PROGRAMS = gcards
 
 gcards_SOURCES =                                                               \
 		gc-main.c                                                      \
+		gc-app.c                                                       \
+		gc-window.c                                                    \
 		$(NULL)
 
 gcards_CPPFLAGS =                                                              \
@@ -39,3 +40,6 @@ gcards_LDADD =                                                                 \
 		$(GCARDS_LIBS)                                                 \
 		$(NULL)
 
+
+DISTCLEANFILES = Makefile config.h config.h.in~ stamp-h1
+-include $(top_srcdir)/git.mk

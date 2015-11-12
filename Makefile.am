@@ -7,5 +7,6 @@ MAINTAINERCLEANFILES =                                                         \
 		$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN)                  \
 		$(GITIGNORE_MAINTAINERCLEANFILES_M4_LIBTOOL)                   \
 		$(NULL)
+DISTCLEANFILES = INSTALL configure aclocal.m4
 
 -include $(top_srcdir)/git.mk
