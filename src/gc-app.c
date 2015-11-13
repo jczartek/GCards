@@ -16,11 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define G_LOG_DOMAIN "GCardsApp"
+
+#include <clutter-gtk/clutter-gtk.h>
 #include "gc-app.h"
+#include "gc-window.h"
+
+static void gcards_app_new_window_cb (GSimpleAction *action,
+                                      GVariant      *parameter,
+                                      gpointer       data);
 
 typedef struct
 {
-
+  gpointer padding[2];
 } GCardsAppPrivate;
 
 G_DEFINE_TYPE_WITH_PRIVATE (GCardsApp, gcards_app, GTK_TYPE_APPLICATION)
@@ -32,9 +40,54 @@ enum {
 
 static GParamSpec *gParamSpecs [LAST_PROP];
 
+static const GActionEntry app_actions[] =
+{
+    {"new-window", gcards_app_new_window_cb, NULL, NULL, NULL}
+};
+
+static void
+gcards_app_activate_action_new_window (GCardsApp *app)
+{
+  g_return_if_fail (GCARDS_IS_APP (app));
+  g_action_group_activate_action (G_ACTION_GROUP (app),
+                                  "new-window", NULL);
+}
+
+static void
+gcards_app_new_window_cb (GSimpleAction *action,
+                          GVariant      *parameter,
+                          gpointer       data)
+{
+  GCardsApp *self = GCARDS_APP (data);
+  GtkWidget *win  = NULL;
+
+  win = gcards_window_new (G_APPLICATION (self));
+  gtk_application_add_window (GTK_APPLICATION (self),
+                              GTK_WINDOW      (win));
+  gtk_window_present (GTK_WINDOW (win));
+}
+
+static void
+gcards_app_startup (GApplication *app)
+{
+  G_APPLICATION_CLASS (gcards_app_parent_class)->startup (app);
+
+  if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
+    {
+      g_critical ("Unable to initalize Clutter!!!");
+      g_application_quit (app);
+    }
+
+  g_action_map_add_action_entries (G_ACTION_MAP(app),
+                                   app_actions,
+                                   G_N_ELEMENTS (app_actions),
+                                   app);
+}
+
 static void
 gcards_app_activate (GApplication *app)
 {
+  gcards_app_activate_action_new_window (GCARDS_APP (app));
 }
 
 static void
@@ -83,6 +136,8 @@ gcards_app_class_init (GCardsAppClass *klass)
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
   application_class->activate = gcards_app_activate;
+  application_class->startup = gcards_app_startup;
+
   object_class->finalize = gcards_app_finalize;
   object_class->get_property = gcards_app_get_property;
   object_class->set_property = gcards_app_set_property;

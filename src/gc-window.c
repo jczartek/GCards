@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define G_LOG_DOMAIN "GCardsWindow"
 #include "gc-window.h"
 
 typedef struct
@@ -84,3 +85,14 @@ static void
 gcards_window_init (GCardsWindow *self)
 {
 }
+
+GtkWidget *
+gcards_window_new (GApplication *app)
+{
+  GCardsWindow *win = NULL;
+
+  win = g_object_new (GCARDS_TYPE_WINDOW,
+                      "application", app, NULL);
+
+  return GTK_WIDGET (win);
+} 

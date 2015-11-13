@@ -32,6 +32,8 @@ struct _GCardsWindowClass
   GtkApplicationWindowClass parent;
 };
 
+GtkWidget * gcards_window_new (GApplication *app);
+
 G_END_DECLS
 
 #endif /* __GCARDS_WINDOW_H__ */
