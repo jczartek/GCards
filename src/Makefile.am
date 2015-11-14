@@ -22,6 +22,7 @@ gcards_SOURCES =                                                               \
 		gc-main.c                                                      \
 		gc-app.c                                                       \
 		gc-window.c                                                    \
+		gc-session-window.c                                            \
 		$(NULL)
 
 gcards_CPPFLAGS =                                                              \
