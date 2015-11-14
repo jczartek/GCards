@@ -20,7 +20,7 @@
 
 #include <clutter-gtk/clutter-gtk.h>
 #include "gc-app.h"
-#include "gc-window.h"
+#include "gc-greeter-window.h"
 
 static void gcards_app_new_window_cb (GSimpleAction *action,
                                       GVariant      *parameter,
@@ -61,7 +61,7 @@ gcards_app_new_window_cb (GSimpleAction *action,
   GCardsApp *self = GCARDS_APP (data);
   GtkWidget *win  = NULL;
 
-  win = gcards_window_new (G_APPLICATION (self));
+  win = gcards_greeter_window_new (G_APPLICATION (self));
   gtk_application_add_window (GTK_APPLICATION (self),
                               GTK_WINDOW      (win));
   gtk_window_present (GTK_WINDOW (win));

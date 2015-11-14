@@ -17,13 +17,13 @@
  */
 
 #define G_LOG_DOMAIN "GCardsWindow"
-#include "gc-window.h"
+#include "gc-greeter-window.h"
 
 typedef struct
 {
-} GCardsWindowPrivate;
+} GCardsGreeterWindowPrivate;
 
-G_DEFINE_TYPE_WITH_PRIVATE (GCardsWindow, gcards_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE_WITH_PRIVATE (GCardsGreeterWindow, gcards_greeter_window, GTK_TYPE_APPLICATION_WINDOW)
 
 enum {
   PROP_0,
@@ -33,21 +33,21 @@ enum {
 static GParamSpec *gParamSpecs [LAST_PROP];
 
 static void
-gcards_window_finalize (GObject *object)
+gcards_greeter_window_finalize (GObject *object)
 {
-  GCardsWindow *self = (GCardsWindow *)object;
-  GCardsWindowPrivate *priv = gcards_window_get_instance_private (self);
+  GCardsGreeterWindow *self = (GCardsGreeterWindow *)object;
+  GCardsGreeterWindowPrivate *priv = gcards_greeter_window_get_instance_private (self);
 
-  G_OBJECT_CLASS (gcards_window_parent_class)->finalize (object);
+  G_OBJECT_CLASS (gcards_greeter_window_parent_class)->finalize (object);
 }
 
 static void
-gcards_window_get_property (GObject    *object,
-                            guint       prop_id,
-                            GValue     *value,
-                            GParamSpec *pspec)
+gcards_greeter_window_get_property (GObject    *object,
+                                    guint       prop_id,
+                                    GValue     *value,
+                                    GParamSpec *pspec)
 {
-  GCardsWindow *self = GCARDS_WINDOW (object);
+  GCardsGreeterWindow *self = GCARDS_GREETER_WINDOW (object);
 
   switch (prop_id)
     {
@@ -57,12 +57,12 @@ gcards_window_get_property (GObject    *object,
 }
 
 static void
-gcards_window_set_property (GObject      *object,
-                            guint         prop_id,
-                            const GValue *value,
-                            GParamSpec   *pspec)
+gcards_greeter_window_set_property (GObject      *object,
+                                    guint         prop_id,
+                                    const GValue *value,
+                                    GParamSpec   *pspec)
 {
-  GCardsWindow *self = GCARDS_WINDOW (object);
+  GCardsGreeterWindow *self = GCARDS_GREETER_WINDOW (object);
 
   switch (prop_id)
     {
@@ -72,26 +72,26 @@ gcards_window_set_property (GObject      *object,
 }
 
 static void
-gcards_window_class_init (GCardsWindowClass *klass)
+gcards_greeter_window_class_init (GCardsGreeterWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-  object_class->finalize = gcards_window_finalize;
-  object_class->get_property = gcards_window_get_property;
-  object_class->set_property = gcards_window_set_property;
+  object_class->finalize = gcards_greeter_window_finalize;
+  object_class->get_property = gcards_greeter_window_get_property;
+  object_class->set_property = gcards_greeter_window_set_property;
 }
 
 static void
-gcards_window_init (GCardsWindow *self)
+gcards_greeter_window_init (GCardsGreeterWindow *self)
 {
 }
 
 GtkWidget *
-gcards_window_new (GApplication *app)
+gcards_greeter_window_new (GApplication *app)
 {
-  GCardsWindow *win = NULL;
+  GCardsGreeterWindow *win = NULL;
 
-  win = g_object_new (GCARDS_TYPE_WINDOW,
+  win = g_object_new (GCARDS_TYPE_GREETER_WINDOW,
                       "application", app, NULL);
 
   return GTK_WIDGET (win);

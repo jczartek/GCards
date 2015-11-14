@@ -21,7 +21,7 @@ bin_PROGRAMS = gcards
 gcards_SOURCES =                                                               \
 		gc-main.c                                                      \
 		gc-app.c                                                       \
-		gc-window.c                                                    \
+		gc-greeter-window.c                                                    \
 		gc-session-window.c                                            \
 		$(NULL)
 

@@ -1,4 +1,4 @@
-/* gc-window.h
+/* gc-greeter-window.h
  *
  * Copyright (C) 2015 Jakub Czartek <kuba@linux.pl>
  *
@@ -16,24 +16,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __GCARDS_WINDOW_H__
-#define __GCARDS_WINDOW_H__
+#ifndef __GCARDS_GREETER_WINDOW_H__
+#define __GCARDS_GREETER_WINDOW_H__
 
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
-#define GCARDS_TYPE_WINDOW (gcards_window_get_type())
+#define GCARDS_TYPE_GREETER_WINDOW (gcards_greeter_window_get_type())
 
-G_DECLARE_DERIVABLE_TYPE (GCardsWindow, gcards_window, GCARDS, WINDOW, GtkApplicationWindow)
+G_DECLARE_DERIVABLE_TYPE (GCardsGreeterWindow, gcards_greeter_window, GCARDS, GREETER_WINDOW, GtkApplicationWindow)
 
-struct _GCardsWindowClass
+struct _GCardsGreeterWindowClass
 {
   GtkApplicationWindowClass parent;
 };
 
-GtkWidget * gcards_window_new (GApplication *app);
+GtkWidget * gcards_greeter_window_new (GApplication *app);
 
 G_END_DECLS
 
-#endif /* __GCARDS_WINDOW_H__ */
+#endif /* __GCARDS_GREETER_WINDOW_H__ */
