@@ -56,7 +56,8 @@ AC_SUBST(GCARDS_LIBS)
 
 AC_OUTPUT([
 Makefile
-src/Makefile])
+src/Makefile
+tools/Makefile])
 
 echo "
      Prefix: ${prefix}

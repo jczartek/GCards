@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = src
+SUBDIRS = tools src
 
 MAINTAINERCLEANFILES =                                                         \
 		$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL)                     \
