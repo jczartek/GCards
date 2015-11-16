@@ -38,6 +38,7 @@ gcards_SOURCES =                                                               \
 		gc-app.c                                                       \
 		gc-greeter-window.c                                            \
 		gc-session-window.c                                            \
+                gc-resource.c                                                  \
 		$(NULL)
 
 gcards_CPPFLAGS =                                                              \
