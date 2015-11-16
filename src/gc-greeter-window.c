@@ -75,15 +75,19 @@ static void
 gcards_greeter_window_class_init (GCardsGreeterWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
   object_class->finalize = gcards_greeter_window_finalize;
   object_class->get_property = gcards_greeter_window_get_property;
   object_class->set_property = gcards_greeter_window_set_property;
+
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/gcards/gcards-greeter-window.ui");
 }
 
 static void
 gcards_greeter_window_init (GCardsGreeterWindow *self)
 {
+  gtk_widget_init_template (GTK_WIDGET(self));
 }
 
 GtkWidget *
