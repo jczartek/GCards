@@ -75,13 +75,17 @@ static void
 gcards_session_window_class_init (GCardsSessionWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
   object_class->finalize = gcards_session_window_finalize;
   object_class->get_property = gcards_session_window_get_property;
   object_class->set_property = gcards_session_window_set_property;
+
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/gcards/gc-session-window.ui");
 }
 
 static void
 gcards_session_window_init (GCardsSessionWindow *self)
 {
+  gtk_widget_init_template (GTK_WIDGET (self));
 }
