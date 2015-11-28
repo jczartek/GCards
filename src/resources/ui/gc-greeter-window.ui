@@ -7,6 +7,18 @@
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">true</property>
         <property name="show-close-button">true</property>
+        <child type="title">
+          <object class="GtkStack" id="title_stack">
+            <property name="visible">true</property>
+            <property name="transition-type">crossfade</property>
+            <child>
+              <object class="GtkLabel" id="browse_title">
+                <property name="visible">true</property>
+                <property name="label" translatable="yes">Select a Base</property>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </template>
