@@ -25,12 +25,7 @@ G_BEGIN_DECLS
 
 #define GCARDS_TYPE_SESSION_WINDOW (gcards_session_window_get_type())
 
-G_DECLARE_DERIVABLE_TYPE (GCardsSessionWindow, gcards_session_window, GCARDS, SESSION_WINDOW, GtkApplicationWindow)
-
-struct _GCardsSessionWindowClass
-{
-  GtkApplicationWindowClass parent;
-};
+G_DECLARE_FINAL_TYPE (GCardsSessionWindow, gcards_session_window, GCARDS, SESSION_WINDOW, GtkApplicationWindow)
 
 G_END_DECLS
 

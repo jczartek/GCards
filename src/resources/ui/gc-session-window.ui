@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="GCardsSessionWindow" parent="GtkApplicationWindow">
+    <property name="default-width">1280</property>
+    <property name="default-height">800</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">true</property>
         <property name="show-close-button">true</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="expand">true</property>
+        <property name="visible">true</property>
+        <child>
+          <object class="GtkClutterEmbed" id="clutter_embed">
+            <property name="visible">true</property>
+            <property name="expand">true</property>
+            <property name="use-layout-size">true</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkActionBar" id="action_bar">
+            <property name="visible">true</property>
+            <property name="expand">false</property>
+          </object>
+        </child>
       </object>
     </child>
   </template>

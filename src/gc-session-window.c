@@ -16,14 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <clutter-gtk/clutter-gtk.h>
 #include "gc-session-window.h"
 
-typedef struct
+struct _GCardsSessionWindow
 {
+  GtkApplicationWindow parent;
 
-} GCardsSessionWindowPrivate;
+  GtkClutterEmbed *clutter_embed;
+  ClutterActor    *stage;
+  GtkActionBar    *action_bar;
+};
 
-G_DEFINE_TYPE_WITH_PRIVATE (GCardsSessionWindow, gcards_session_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE (GCardsSessionWindow, gcards_session_window, GTK_TYPE_APPLICATION_WINDOW)
 
 enum {
   PROP_0,
@@ -36,7 +41,6 @@ static void
 gcards_session_window_finalize (GObject *object)
 {
   GCardsSessionWindow *self = (GCardsSessionWindow *)object;
-  GCardsSessionWindowPrivate *priv = gcards_session_window_get_instance_private (self);
 
   G_OBJECT_CLASS (gcards_session_window_parent_class)->finalize (object);
 }
@@ -72,16 +76,33 @@ gcards_session_window_set_property (GObject      *object,
 }
 
 static void
+gcards_session_window_constructed (GObject *object)
+{
+  GCardsSessionWindow *self = GCARDS_SESSION_WINDOW (object);
+  ClutterColor color = CLUTTER_COLOR_INIT (0,0,0,255);
+
+  G_OBJECT_CLASS (gcards_session_window_parent_class)->constructed (object);
+
+  self->stage = gtk_clutter_embed_get_stage (self->clutter_embed);
+  clutter_actor_set_background_color (self->stage, &color);
+
+
+}
+
+static void
 gcards_session_window_class_init (GCardsSessionWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
+  object_class->constructed = gcards_session_window_constructed;
   object_class->finalize = gcards_session_window_finalize;
   object_class->get_property = gcards_session_window_get_property;
   object_class->set_property = gcards_session_window_set_property;
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/gcards/gc-session-window.ui");
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/gcards/gcards-session-window.ui");
+  gtk_widget_class_bind_template_child (widget_class, GCardsSessionWindow, clutter_embed);
+  gtk_widget_class_bind_template_child (widget_class, GCardsSessionWindow, action_bar);
 }
 
 static void
