@@ -40,6 +40,7 @@ gcards_SOURCES =                                                               \
 		gc-session-window.c                                            \
                 gc-resource.c                                                  \
                 gc-scrolled-window.c                                           \
+                gc-card.c                                                      \
 		$(NULL)
 
 gcards_CPPFLAGS =                                                              \
