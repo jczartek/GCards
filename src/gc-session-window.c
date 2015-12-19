@@ -23,9 +23,11 @@ struct _GCardsSessionWindow
 {
   GtkApplicationWindow parent;
 
-  GtkClutterEmbed *clutter_embed;
-  ClutterActor    *stage;
-  GtkActionBar    *action_bar;
+  GtkClutterEmbed      *clutter_embed;
+  ClutterLayoutManager *layout;
+  ClutterActor         *stage;
+
+  GtkActionBar         *action_bar;
 };
 
 G_DEFINE_TYPE (GCardsSessionWindow, gcards_session_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -86,7 +88,10 @@ gcards_session_window_constructed (GObject *object)
   self->stage = gtk_clutter_embed_get_stage (self->clutter_embed);
   clutter_actor_set_background_color (self->stage, &color);
 
-
+  self->layout = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
+                                         CLUTTER_BIN_ALIGNMENT_CENTER);
+  clutter_actor_set_layout_manager (self->stage,
+                                    self->layout);
 }
 
 static void
