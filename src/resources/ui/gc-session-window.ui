@@ -25,6 +25,18 @@
           <object class="GtkActionBar" id="action_bar">
             <property name="visible">true</property>
             <property name="expand">false</property>
+            <child type="center">
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="visible">true</property>
+                <property name="expand">false</property>
+                <child>
+                  <object class="GtkEntry" id="entry_check">
+                    <property name="visible">true</property>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
       </object>
