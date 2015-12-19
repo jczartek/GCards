@@ -18,6 +18,7 @@
 
 #include <clutter-gtk/clutter-gtk.h>
 #include "gc-session-window.h"
+#include "gc-card.h"
 
 struct _GCardsSessionWindow
 {
@@ -26,6 +27,7 @@ struct _GCardsSessionWindow
   GtkClutterEmbed      *clutter_embed;
   ClutterLayoutManager *layout;
   ClutterActor         *stage;
+  ClutterActor         *card;
 
   GtkActionBar         *action_bar;
 };
@@ -92,6 +94,8 @@ gcards_session_window_constructed (GObject *object)
                                          CLUTTER_BIN_ALIGNMENT_CENTER);
   clutter_actor_set_layout_manager (self->stage,
                                     self->layout);
+  self->card = gcards_card_new ();
+  clutter_actor_add_child (self->stage, self->card);
 }
 
 static void

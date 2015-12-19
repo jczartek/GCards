@@ -38,6 +38,24 @@ gcards_card_new (void)
 }
 
 static void
+gcards_card_get_preferred_width (ClutterActor  *self,
+                                 gfloat         for_height,
+                                 gfloat        *min_width,
+                                 gfloat        *natural_width)
+{
+  *min_width = *natural_width = 440.0;
+}
+
+static void
+gcards_card_get_preferred_height (ClutterActor  *self,
+                                  gfloat         for_width,
+                                  gfloat        *min_height,
+                                  gfloat        *natural_height)
+{
+  *min_height = *natural_height = 220.0;
+}
+
+static void
 gcards_card_finalize (GObject *object)
 {
   GCardsCard *self = GCARDS_CARD (object);
@@ -82,21 +100,25 @@ gcards_card_constructed (GObject *object)
 
   G_OBJECT_CLASS (gcards_card_parent_class)->constructed (object);
 
-  clutter_actor_set_background_color (CLUTTER_ACTOR (self),
-                                      CLUTTER_COLOR_White );
 }
 
 static void
 gcards_card_class_init (GCardsCardClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  ClutterActorClass *actor_class = CLUTTER_ACTOR_CLASS (klass);
 
   object_class->finalize = gcards_card_finalize;
   object_class->get_property = gcards_card_get_property;
   object_class->set_property = gcards_card_set_property;
+
+  actor_class->get_preferred_height = gcards_card_get_preferred_height;
+  actor_class->get_preferred_width = gcards_card_get_preferred_width;
 }
 
 static void
 gcards_card_init (GCardsCard *self)
 {
+  clutter_actor_set_background_color (CLUTTER_ACTOR (self),
+                                      CLUTTER_COLOR_White );
 }
