@@ -1,0 +1,46 @@
+[
+  {
+    "words" : [
+      {
+        "source"      : "mine",
+        "destination" : "moje, moja",
+        "sentences"   : []
+      },
+      {
+        "source"      : "yours",
+        "destination" : "twoj, twoja",
+        "sentences"   : []
+      },
+      {
+        "source"      : "his",
+        "destination" : "jego",
+        "sentences"   : []
+      },
+      {
+        "source"      : "hers",
+        "destination" : "jej",
+        "sentences"   : []
+      },
+      {
+        "source"      : "its",
+        "destination" : "jego",
+        "sentences"   : []
+      }
+      {
+        "source"      : "our",
+        "destination" : "nasze",
+        "sentences"   : []
+      },
+      {
+        "source"      : "your",
+        "destination" : "wasze",
+        "sentences"   : []
+      },
+      {
+        "source"      : "Their",
+        "destination" : "ich",
+        "sentences"   : []
+      }
+    ]
+  }
+]

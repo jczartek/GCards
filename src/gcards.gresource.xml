@@ -3,5 +3,9 @@
   <gresource prefix="/org/gnome/gcards">
     <file alias="gcards-greeter-window.ui" compressed="true" preprocess="xml-stripblanks">./resources/ui/gc-greeter-window.ui</file>
     <file alias="gcards-session-window.ui" compressed="true" preprocess="xml-stripblanks">./resources/ui/gc-session-window.ui</file>
+    <file alias="bundles.json">./bundles/bundles.json</file>
+    <file alias="personal_pronouns">./bundles/pronouns/personal_pronouns.json</file>
+    <file alias="possessive_pronouns">./bundles/pronouns/possessive_pronouns.json</file>
+    <file alias="the_first_hundred.json">./bundles/the_most_frequently_used_words/the_first_hundred.json</file>
   </gresource>
 </gresources>

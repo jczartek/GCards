@@ -1,0 +1,46 @@
+[
+  {
+    "words" : [
+      {
+        "source"      : "I",
+        "destination" : "Ja",
+        "sentences"   : []
+      },
+      {
+        "source"      : "You",
+        "destination" : "Ty",
+        "sentences"   : []
+      },
+      {
+        "source"      : "She",
+        "destination" : "Ona",
+        "sentences"   : []
+      },
+      {
+        "source"      : "He",
+        "destination" : "On",
+        "sentences"   : []
+      },
+      {
+        "source"      : "It",
+        "destination" : "Ono",
+        "sentences"   : []
+      }
+      {
+        "source"      : "We",
+        "destination" : "My",
+        "sentences"   : []
+      },
+      {
+        "source"      : "You",
+        "destination" : "Wy",
+        "sentences"   : []
+      },
+      {
+        "source"      : "They",
+        "destination" : "Oni, One",
+        "sentences"   : []
+      }
+    ]
+  }
+]

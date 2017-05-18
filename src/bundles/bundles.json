@@ -1,0 +1,35 @@
+[
+  {
+    "language"    : "English",
+    "title"       : "Pronouns",
+    "translation" : "Zaimki",
+    "level"       : 1,
+    "description" : "",
+    "files"       : [
+      {
+        "name"        : "Personal Pronouns",
+        "translation" : "Zaimki osobowe",
+        "file"        : "personal_pronouns.json"
+      },
+      {
+        "name"        : "Possessive Pronouns",
+        "translation" : "Zaimki dzierżawcze",
+        "file"        : "possessive_pronouns.json"
+      }
+    ]
+  },
+  {
+    "language"    : "English",
+    "title"       : "The most frequently used words",
+    "translation" : "Najcześciej używane słowa",
+    "level"       : 1,
+    "description" : "",
+    "files"       : [
+      {
+        "name"        : "The first hundred",
+        "translation" : "Pierwsze sto",
+        "file"        : "the_first_hundred.json"
+      }
+    ]
+  }
+]
