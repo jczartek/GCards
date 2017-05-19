@@ -19,7 +19,6 @@
 #define G_LOG_DOMAIN "GCardsWindow"
 
 #include "gc-greeter-window.h"
-#include "gc-scrolled-window.h"
 
 typedef struct
 {
